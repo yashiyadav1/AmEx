@@ -24,10 +24,12 @@ const skillsData = [
   { name: 'Linux', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
 ];
 
+const specializations = ['Deep Learning', 'Natural Language Processing', 'Data Analytics'];
+
 const experienceData = [
   { company: 'Nokia', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/02/Nokia_wordmark.svg' },
-  { company: 'Purdue University', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Purdue_University_logo.svg' },
-  { company: 'Vera Bradley', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Vera_Bradley.svg' },
+  { company: 'Purdue University Fort Wayne', logo: 'https://en.wikipedia.org/wiki/File:Purdue_University_Fort_Wayne_logo.svg' },
+  { company: 'Vera Bradley', logo: '/public/assets/vera-bradley-logo-D4EA5716DA-seeklogo.png' },
 ];
 
 const YashiAmexPortfolio = () => {
@@ -159,19 +161,23 @@ const YashiAmexPortfolio = () => {
               )}
               {sectionId === 'skills' && (
                 <>
-                  <h3 className="text-xl font-semibold mb-4 text-[#016FD0]">Unlimited Rewards in:</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                    {skillsData.map((skill, index) => (
-                      <div key={index} className="flex flex-col items-center">
-                        <img src={skill.logo} alt={skill.name} className="w-12 h-12 mb-2" />
-                        <span className="text-sm text-center">{skill.name}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div>
-                      <h3 className="font-semibold">Specialization:</h3>
-                      <p>Deep Learning, Natural Language Processing, Data Analytics</p>
+                <h3 className="text-xl font-semibold mb-4 text-[#016FD0]">Unlimited Rewards in:</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
+                  {skillsData.map((skill, index) => (
+                    <div key={index} className="flex flex-col items-center">
+                      <img src={skill.logo} alt={skill.name} className="w-12 h-12 mb-2" />
+                      <span className="text-sm text-center">{skill.name}</span>
                     </div>
+                  ))}
+                </div>
+                <h3 className="text-xl font-semibold mb-4 text-[#016FD0]">Specialization:</h3>
+                <div className="flex flex-wrap gap-4">
+                  {specializations.map((spec, index) => (
+                    <span key={index} className="bg-[#016FD0] text-white px-3 py-1 rounded-full text-sm">
+                      {spec}
+                    </span>
+                  ))}
+                </div>
                 </>
               )}
               {sectionId === 'experience' && (
@@ -180,8 +186,8 @@ const YashiAmexPortfolio = () => {
                   <ul className="space-y-4">
                     {experienceData.map((exp, index) => (
                       <li key={index} className="flex items-center space-x-4">
-                        <img src={exp.logo} alt={exp.company} className="w-12 h-12" />
-                        <span>{exp.company}</span>
+                        <img src={exp.logo} alt={exp.company} className="w-24 h-12 object-contain" />
+                        <span className="text-lg">{exp.company}</span>
                       </li>
                     ))}
                   </ul>
