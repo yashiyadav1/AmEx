@@ -40,7 +40,7 @@ const YashiAmexPortfolio = () => {
   return (
     <div className="bg-white min-h-screen font-sans">
       <nav className="bg-[#016FD0] text-white p-4 sticky top-0 z-10">
-        <div className="max-w-6xl mx-auto flex justify-between items-center">
+        <div className="max-w-6xl mx-auto flex flex-wrap justify-between items-center">
           <div className="flex items-center">
             <div className="bg-white text-[#016FD0] p-1 mr-2">
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,12 +61,12 @@ const YashiAmexPortfolio = () => {
               </svg>
             </button>
           </div>
-          <div className={`md:flex md:space-x-4 ${isMenuOpen ? 'block' : 'hidden'} absolute md:relative top-full left-0 right-0 bg-[#016FD0] md:bg-transparent p-4 md:p-0`}>
+          <div className={`w-full md:w-auto md:flex md:items-center md:space-x-4 ${isMenuOpen ? 'block' : 'hidden'} mt-4 md:mt-0`}>
             {['about', 'skills', 'experience', 'contact'].map((section) => (
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className={`block w-full text-left md:inline-block md:w-auto py-2 md:py-0 hover:underline ${activeSection === section ? 'font-bold' : ''}`}
+                className={`block w-full md:w-auto text-left md:inline-block py-2 md:py-0 hover:underline ${activeSection === section ? 'font-bold' : ''}`}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </button>
