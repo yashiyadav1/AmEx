@@ -167,6 +167,10 @@ const YashiAmexPortfolio = () => {
                         <span className="text-sm text-center">{skill.name}</span>
                       </div>
                     ))}
+                    <div>
+                      <h3 className="font-semibold">Specialization:</h3>
+                      <p>Deep Learning, Natural Language Processing, Data Analytics</p>
+                    </div>
                   </div>
                 </>
               )}
