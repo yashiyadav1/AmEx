@@ -86,7 +86,7 @@ const YashiAmexPortfolio = () => {
             <button onClick={() => scrollToSection('contact')} className="bg-white text-[#016FD0] font-bold py-2 px-6 rounded-full hover:bg-gray-200 transition duration-300">
               Hire Now
             </button>
-            <a href="/path-to-your-resume.pdf" download className="bg-transparent text-white font-bold py-2 px-6 rounded-full hover:bg-white hover:bg-opacity-20 transition duration-300 border-2 border-white">
+            <a href="/assets/Yadav_Yashi_resume.pdf" download className="bg-transparent text-white font-bold py-2 px-6 rounded-full hover:bg-white hover:bg-opacity-20 transition duration-300 border-2 border-white">
               Download Resume
             </a>
           </div>
