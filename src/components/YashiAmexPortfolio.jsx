@@ -28,8 +28,8 @@ const specializations = ['Deep Learning', 'Natural Language Processing', 'Data A
 
 const experienceData = [
   { company: 'Nokia', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/02/Nokia_wordmark.svg', description: 'Software QA Intern, Nokia (May 2024 - Present)'},
-  { company: 'Purdue University Fort Wayne', logo: 'https://en.wikipedia.org/wiki/File:Purdue_University_Fort_Wayne_logo.svg#/media/File:Purdue_University_Fort_Wayne_logo.svg', description: 'Graduate Research Assistant, Purdue University (August 2023 - December 2024)' },
-  { company: 'Vera Bradley', logo: '/public/assets/vera-bradley-logo-D4EA5716DA-seeklogo.png', description: 'D365 Developer, Vera Bradley (May 2022 - August 2022)' },
+  { company: 'Purdue University Fort Wayne', logo: 'https://media.licdn.com/dms/image/v2/D4E0BAQFLdPAifd1GhA/company-logo_100_100/company-logo_100_100/0/1714406017819/purdue_university_fort_wayne_logo?e=1735171200&v=beta&t=giqSt-VszQgVFcnclxYqHSdT5o-p5XnVRqujwhEfqN0', description: 'Graduate Research Assistant, Purdue University (August 2023 - December 2024)' },
+  { company: 'Vera Bradley', logo: 'https://media.licdn.com/dms/image/v2/D560BAQGOC-h3jG97Aw/company-logo_100_100/company-logo_100_100/0/1720702091343/vera_bradley_logo?e=1735171200&v=beta&t=LTCRzloPRmYcnyu3u8ZwvUwSDvVnnYXsfjpsheEI8QQ', description: 'D365 Developer, Vera Bradley (May 2022 - August 2022)' },
 ];
 
 const YashiAmexPortfolio = () => {
