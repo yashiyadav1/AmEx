@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import './YashiAmexPortfolio.css';
 
 const YashiAmexPortfolio = () => {
   const [activeSection, setActiveSection] = useState('');
