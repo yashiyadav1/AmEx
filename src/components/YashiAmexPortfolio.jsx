@@ -1,6 +1,35 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './YashiAmexPortfolio.css';
 
+const skillsData = [
+  { name: 'Python', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+  { name: 'Java', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
+  { name: 'C++', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
+  { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+  { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+  { name: 'Node.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+  { name: 'TensorFlow', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg' },
+  { name: 'PyTorch', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg' },
+  { name: 'NumPy', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg' },
+  { name: 'Pandas', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg' },
+  { name: 'scikit-learn', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg' },
+  { name: 'Azure', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg' },
+  { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+  { name: 'Kubernetes', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg' },
+  { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+  { name: 'FastAPI', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg' },
+  { name: 'SQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+  { name: 'MongoDB', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
+  { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
+  { name: 'Linux', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
+];
+
+const experienceData = [
+  { company: 'Nokia', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/02/Nokia_wordmark.svg' },
+  { company: 'Purdue University', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Purdue_University_logo.svg' },
+  { company: 'Vera Bradley', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Vera_Bradley.svg' },
+];
+
 const YashiAmexPortfolio = () => {
   const [activeSection, setActiveSection] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -63,9 +92,9 @@ const YashiAmexPortfolio = () => {
           </div>
           <div className={`w-full md:w-auto md:flex md:items-center md:space-x-4 ${isMenuOpen ? 'block' : 'hidden'} mt-4 md:mt-0`}>
             {[
-              ['about', 'Account Summary'],
+              ['about', 'Portfolio Summary'],
               ['skills', 'Credit Limit'],
-              ['experience', 'Transaction History'],
+              ['experience', 'Experience'],
               ['contact', 'Customer Service']
             ].map(([key, label]) => (
               <button
@@ -99,10 +128,10 @@ const YashiAmexPortfolio = () => {
           <p className="text-lg mb-8 italic">The Preferred Developer</p>
           <div className="space-y-4 md:space-y-0 md:space-x-4">
             <button onClick={() => scrollToSection('contact')} className="w-full md:w-auto bg-white text-[#016FD0] font-bold py-2 px-6 rounded-full hover:bg-gray-200 transition duration-300">
-              Apply Now
+              Hire Now
             </button>
             <a href={`${import.meta.env.BASE_URL}assets/Yadav_Yashi_resume.pdf`} download className="w-full md:w-auto inline-block bg-transparent text-white font-bold py-2 px-6 rounded-full hover:bg-white hover:bg-opacity-20 transition duration-300 border-2 border-white">
-              View Statement
+              View Resume
             </a>
           </div>
         </div>
@@ -125,39 +154,32 @@ const YashiAmexPortfolio = () => {
               </h2>
               {sectionId === 'about' && (
                 <p className="text-gray-700">
-                  Machine Learning Engineer and Software Developer with experience in AI/ML models, RESTful APIs, and cloud-native applications. Seeking an opportunity to leverage diverse skills in AI, ML, and software engineering.
+                  I am a Machine Learning Engineer and Software Developer with  a strong foundation in AI/ML technique and hands-on experience in deep learning and natural language processing. Highly skilled in developing and deploying ML models using TensorFlow and PyTorch. Excited to create solutions using machine learning and deep learning techniques and solve complex problems with cool solutions.
                 </p>
               )}
               {sectionId === 'skills' && (
                 <>
                   <h3 className="text-xl font-semibold mb-4 text-[#016FD0]">Unlimited Rewards in:</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <h3 className="font-semibold">Languages:</h3>
-                      <p>Python, Java, C++, JavaScript (React.js/Node.js)</p>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold">AI/ML:</h3>
-                      <p>TensorFlow, NumPy, Pandas, NLTK, PyTorch, scikit-learn</p>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold">Cloud & DevOps:</h3>
-                      <p>Microsoft Azure, Docker, Kubernetes, GitOps, ArgoCD, Git, Gitea</p>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold">Web Dev:</h3>
-                      <p>FastAPI, RESTful APIs, Microservices</p>
-                    </div>
+                  <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    {skillsData.map((skill, index) => (
+                      <div key={index} className="flex flex-col items-center">
+                        <img src={skill.logo} alt={skill.name} className="w-12 h-12 mb-2" />
+                        <span className="text-sm text-center">{skill.name}</span>
+                      </div>
+                    ))}
                   </div>
                 </>
               )}
               {sectionId === 'experience' && (
                 <>
                   <h3 className="text-xl font-semibold mb-4 text-[#016FD0]">A History of High Returns:</h3>
-                  <ul className="list-disc pl-5">
-                    <li>Software QA Intern, Nokia (May 2024 - Present)</li>
-                    <li>Graduate Research Assistant, Purdue University (August 2023 - December 2024)</li>
-                    <li>D365 Developer, Vera Bradley (May 2022 - August 2022)</li>
+                  <ul className="space-y-4">
+                    {experienceData.map((exp, index) => (
+                      <li key={index} className="flex items-center space-x-4">
+                        <img src={exp.logo} alt={exp.company} className="w-12 h-12" />
+                        <span>{exp.company}</span>
+                      </li>
+                    ))}
                   </ul>
                 </>
               )}
@@ -166,16 +188,24 @@ const YashiAmexPortfolio = () => {
                   <h3 className="text-xl font-semibold mb-4 text-[#016FD0]">24/7 Support:</h3>
                   <p>(260) 246-8543</p>
                   <p>yashiyadav0901@gmail.com</p>
-                  <p>
+                  <div className="flex space-x-4 mt-4">
                     <a 
                       href="https://linkedin.com/in/yashiyadav" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-[#006FCF] hover:underline"
+                      className="text-[#006FCF] hover:text-[#016FD0]"
                     >
-                      linkedin.com/in/yashiyadav
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" className="w-8 h-8" />
                     </a>
-                  </p>
+                    <a 
+                      href="https://github.com/yashiyadav1" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-[#006FCF] hover:text-[#016FD0]"
+                    >
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" className="w-8 h-8" />
+                    </a>
+                  </div>
                 </>
               )}
             </div>
