@@ -62,13 +62,18 @@ const YashiAmexPortfolio = () => {
             </button>
           </div>
           <div className={`w-full md:w-auto md:flex md:items-center md:space-x-4 ${isMenuOpen ? 'block' : 'hidden'} mt-4 md:mt-0`}>
-            {['about', 'skills', 'experience', 'contact'].map((section) => (
+            {[
+              ['about', 'Account Summary'],
+              ['skills', 'Credit Limit'],
+              ['experience', 'Transaction History'],
+              ['contact', 'Customer Service']
+            ].map(([key, label]) => (
               <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className={`block w-full md:w-auto text-left md:inline-block py-2 md:py-0 hover:underline ${activeSection === section ? 'font-bold' : ''}`}
+                key={key}
+                onClick={() => scrollToSection(key)}
+                className={`block w-full md:w-auto text-left md:inline-block py-2 md:py-0 hover:underline ${activeSection === key ? 'font-bold' : ''}`}
               >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
+                {label}
               </button>
             ))}
           </div>
@@ -90,13 +95,14 @@ const YashiAmexPortfolio = () => {
             textTransform: 'uppercase',
             fontWeight: 'bold'
           }}>Yashi Yadav</h1>
-          <p className="text-xl mb-8">Machine Learning Engineer • Data Scientist • AI Enthusiast</p>
+          <p className="text-xl mb-2">Machine Learning Engineer • Data Scientist • AI Enthusiast</p>
+          <p className="text-lg mb-8 italic">The Preferred Developer</p>
           <div className="space-y-4 md:space-y-0 md:space-x-4">
             <button onClick={() => scrollToSection('contact')} className="w-full md:w-auto bg-white text-[#016FD0] font-bold py-2 px-6 rounded-full hover:bg-gray-200 transition duration-300">
-              Hire Now
+              Apply Now
             </button>
             <a href={`${import.meta.env.BASE_URL}assets/Yadav_Yashi_resume.pdf`} download className="w-full md:w-auto inline-block bg-transparent text-white font-bold py-2 px-6 rounded-full hover:bg-white hover:bg-opacity-20 transition duration-300 border-2 border-white">
-              Download Resume
+              View Statement
             </a>
           </div>
         </div>
@@ -112,7 +118,10 @@ const YashiAmexPortfolio = () => {
           >
             <div className="w-full">
               <h2 className="text-3xl font-bold text-[#016FD0] mb-4">
-                {sectionId.charAt(0).toUpperCase() + sectionId.slice(1)}
+                {sectionId === 'about' && 'Account Summary'}
+                {sectionId === 'skills' && 'Credit Limit'}
+                {sectionId === 'experience' && 'Transaction History'}
+                {sectionId === 'contact' && 'Customer Service'}
               </h2>
               {sectionId === 'about' && (
                 <p className="text-gray-700">
@@ -120,34 +129,41 @@ const YashiAmexPortfolio = () => {
                 </p>
               )}
               {sectionId === 'skills' && (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <h3 className="font-semibold">Languages:</h3>
-                    <p>Python, Java, C++, JavaScript (React.js/Node.js)</p>
+                <>
+                  <h3 className="text-xl font-semibold mb-4 text-[#016FD0]">Unlimited Rewards in:</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <h3 className="font-semibold">Languages:</h3>
+                      <p>Python, Java, C++, JavaScript (React.js/Node.js)</p>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold">AI/ML:</h3>
+                      <p>TensorFlow, NumPy, Pandas, NLTK, PyTorch, scikit-learn</p>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold">Cloud & DevOps:</h3>
+                      <p>Microsoft Azure, Docker, Kubernetes, GitOps, ArgoCD, Git, Gitea</p>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold">Web Dev:</h3>
+                      <p>FastAPI, RESTful APIs, Microservices</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold">AI/ML:</h3>
-                    <p>TensorFlow, NumPy, Pandas, NLTK, PyTorch, scikit-learn</p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">Cloud & DevOps:</h3>
-                    <p>Microsoft Azure, Docker, Kubernetes, GitOps, ArgoCD, Git, Gitea</p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">Web Dev:</h3>
-                    <p>FastAPI, RESTful APIs, Microservices</p>
-                  </div>
-                </div>
+                </>
               )}
               {sectionId === 'experience' && (
-                <ul className="list-disc pl-5">
-                  <li>Software QA Intern, Nokia (May 2024 - Present)</li>
-                  <li>Graduate Research Assistant, Purdue University (August 2023 - December 2024)</li>
-                  <li>D365 Developer, Vera Bradley (May 2022 - August 2022)</li>
-                </ul>
+                <>
+                  <h3 className="text-xl font-semibold mb-4 text-[#016FD0]">A History of High Returns:</h3>
+                  <ul className="list-disc pl-5">
+                    <li>Software QA Intern, Nokia (May 2024 - Present)</li>
+                    <li>Graduate Research Assistant, Purdue University (August 2023 - December 2024)</li>
+                    <li>D365 Developer, Vera Bradley (May 2022 - August 2022)</li>
+                  </ul>
+                </>
               )}
               {sectionId === 'contact' && (
                 <>
+                  <h3 className="text-xl font-semibold mb-4 text-[#016FD0]">24/7 Support:</h3>
                   <p>(260) 246-8543</p>
                   <p>yashiyadav0901@gmail.com</p>
                   <p>
@@ -168,7 +184,7 @@ const YashiAmexPortfolio = () => {
       </main>
 
       <footer className="bg-gray-100 text-center py-4">
-        <p className="text-gray-600">"Don't leave home without it" - Bringing innovation to technology</p>
+        <p className="text-gray-600">"Don't code without it" - Bringing innovation to technology</p>
       </footer>
     </div>
   );
