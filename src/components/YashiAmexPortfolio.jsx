@@ -28,7 +28,7 @@ const specializations = ['Deep Learning', 'Natural Language Processing', 'Data A
 
 const experienceData = [
   { company: 'Nokia', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/02/Nokia_wordmark.svg', description: 'Software QA Intern, Nokia (May 2024 - Present)'},
-  { company: 'Purdue University Fort Wayne', logo: 'https://en.wikipedia.org/wiki/File:Purdue_University_Fort_Wayne_logo.svg', description: 'Graduate Research Assistant, Purdue University (August 2023 - December 2024)' },
+  { company: 'Purdue University Fort Wayne', logo: 'https://en.wikipedia.org/wiki/File:Purdue_University_Fort_Wayne_logo.svg#/media/File:Purdue_University_Fort_Wayne_logo.svg', description: 'Graduate Research Assistant, Purdue University (August 2023 - December 2024)' },
   { company: 'Vera Bradley', logo: '/public/assets/vera-bradley-logo-D4EA5716DA-seeklogo.png', description: 'D365 Developer, Vera Bradley (May 2022 - August 2022)' },
 ];
 
