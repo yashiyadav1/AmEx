@@ -3,6 +3,7 @@ import './YashiAmexPortfolio.css';
 
 const YashiAmexPortfolio = () => {
   const [activeSection, setActiveSection] = useState('');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const sectionRefs = {
     about: useRef(null),
     skills: useRef(null),
@@ -33,6 +34,7 @@ const YashiAmexPortfolio = () => {
 
   const scrollToSection = (sectionId) => {
     sectionRefs[sectionId].current?.scrollIntoView({ behavior: 'smooth' });
+    setIsMenuOpen(false);
   };
 
   return (
@@ -52,12 +54,19 @@ const YashiAmexPortfolio = () => {
               fontWeight: '700'
             }}>YASHI</span>
           </div>
-          <div className="space-x-4">
+          <div className="md:hidden">
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white">
+              <svg className="w-6 h-6" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}></path>
+              </svg>
+            </button>
+          </div>
+          <div className={`md:flex md:space-x-4 ${isMenuOpen ? 'block' : 'hidden'} absolute md:relative top-full left-0 right-0 bg-[#016FD0] md:bg-transparent p-4 md:p-0`}>
             {['about', 'skills', 'experience', 'contact'].map((section) => (
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className={`hover:underline ${activeSection === section ? 'font-bold' : ''}`}
+                className={`block w-full text-left md:inline-block md:w-auto py-2 md:py-0 hover:underline ${activeSection === section ? 'font-bold' : ''}`}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </button>
@@ -66,7 +75,7 @@ const YashiAmexPortfolio = () => {
         </div>
       </nav>
 
-      <header className="bg-[#016FD0] text-white py-20 h-screen flex items-center relative overflow-hidden">
+      <header className="bg-[#016FD0] text-white py-20 md:h-screen flex items-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="w-full h-full" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
@@ -74,19 +83,19 @@ const YashiAmexPortfolio = () => {
           }}></div>
         </div>
         
-        <div className="max-w-6xl mx-auto text-center relative z-10">
-          <h1 className="text-6xl font-bold mb-4" style={{
+        <div className="max-w-6xl mx-auto text-center relative z-10 px-4">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4" style={{
             fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
             letterSpacing: '-1px',
             textTransform: 'uppercase',
             fontWeight: 'bold'
           }}>Yashi Yadav</h1>
           <p className="text-xl mb-8">Machine Learning Engineer • Data Scientist • AI Enthusiast</p>
-          <div className="space-x-4">
-            <button onClick={() => scrollToSection('contact')} className="bg-white text-[#016FD0] font-bold py-2 px-6 rounded-full hover:bg-gray-200 transition duration-300">
+          <div className="space-y-4 md:space-y-0 md:space-x-4">
+            <button onClick={() => scrollToSection('contact')} className="w-full md:w-auto bg-white text-[#016FD0] font-bold py-2 px-6 rounded-full hover:bg-gray-200 transition duration-300">
               Hire Now
             </button>
-            <a href={`./assets/Yadav_Yashi_resume.pdf`} download className="bg-transparent text-white font-bold py-2 px-6 rounded-full hover:bg-white hover:bg-opacity-20 transition duration-300 border-2 border-white">
+            <a href={`${import.meta.env.BASE_URL}assets/Yadav_Yashi_resume.pdf`} download className="w-full md:w-auto inline-block bg-transparent text-white font-bold py-2 px-6 rounded-full hover:bg-white hover:bg-opacity-20 transition duration-300 border-2 border-white">
               Download Resume
             </a>
           </div>
@@ -99,7 +108,7 @@ const YashiAmexPortfolio = () => {
             key={sectionId}
             id={sectionId}
             ref={ref}
-            className="mb-12 min-h-screen flex items-center"
+            className="mb-20 md:mb-32 pt-20 md:pt-32"
           >
             <div className="w-full">
               <h2 className="text-3xl font-bold text-[#016FD0] mb-4">
@@ -134,6 +143,7 @@ const YashiAmexPortfolio = () => {
                 <ul className="list-disc pl-5">
                   <li>Software QA Intern, Nokia (May 2024 - Present)</li>
                   <li>Graduate Research Assistant, Purdue University (August 2023 - December 2024)</li>
+                  <li>D365 Developer, Vera Bradley (May 2022 - August 2022)</li>
                 </ul>
               )}
               {sectionId === 'contact' && (
